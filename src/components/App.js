@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import "../App.css";
-import Navbar from "./Navbar";
+import NavbarMain from "./NavbarMain";
+import Navtabs from "./Navtabs";
 
 class App extends Component {
   render() {
-    return <Navbar />;
+    return (
+      <React.Fragment>
+        <NavbarMain />
+        <Navtabs />
+      </React.Fragment>
+    );
   }
 }
 
