@@ -18,15 +18,25 @@ class Metal extends Component {
   render() {
     return (
       <div>
-        Metal: <span id="metal">{this.state.metal}</span>
-        <Button
-          variant="outline-dark"
-          size="sm"
-          className="m-2"
-          onClick={this.gainMetal}
-        >
-          Gain Metal
-        </Button>
+        <table class="table">
+          <td>
+            <h2>Metal</h2>
+            <span>
+              Metal is one of the primary resources. It is used for many things,
+              including storage upgrades, machinery and most things in space.
+            </span>
+            <br></br>
+            <span id="metal">Metal: {this.state.metal}</span>
+            <Button
+              variant="outline-dark"
+              size="sm"
+              className="m-2"
+              onClick={this.gainMetal}
+            >
+              Gain 1
+            </Button>
+          </td>
+        </table>
       </div>
     );
   }
