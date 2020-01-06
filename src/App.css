@@ -41,3 +41,7 @@
   color: white !important;
   background-color: gray !important;
 }
+
+.notEnough {
+  color: "red";
+}

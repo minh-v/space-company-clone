@@ -14,7 +14,8 @@ class Navtabs extends Component {
           <Tab eventKey="Resources" title="Resources">
             <ResourceTabs />
           </Tab>
-          <Tab eventKey="Research" title="Research">
+          <Tab eventKey="Research" title="Research" tabClassName="d-none">
+            //hidden temporarily
             <p>temp</p>
           </Tab>
         </Tabs>

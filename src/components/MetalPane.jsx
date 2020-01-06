@@ -2,49 +2,47 @@ import React, { Component } from "react";
 import Tab from "react-bootstrap/Tab";
 import Button from "react-bootstrap/Button";
 
-class WoodPane extends Component {
+class MetalPane extends Component {
   render() {
     return (
       <Tab.Content>
-        <Tab.Pane eventKey="Wood">
+        <Tab.Pane eventKey="Metal">
           <div>
-            <h2>Wood</h2>
+            <h2>Metal</h2>
             <span>
-              Wood is one of the primary resources. It is used more often in
-              early game for tools and buildings.
+              Metal is one of the primary resources. It is used for many things,
+              including storage upgrades, machinery and most things in space.
             </span>
             <br></br>
             <Button
               variant="outline-dark"
               size="sm"
               className="m-2"
-              onClick={this.props.gainWood}
+              onClick={this.props.gainMetal}
             >
               Gain 1
             </Button>
             <br></br>
             <h3>
-              Woodcutter: <span id="Woodcutter">{this.props.woodcutter}</span>
+              Miner: <span id="Miner">{this.props.Miner}</span>
             </h3>
-            Build an axe for your woodcutter.
+            Build a pickaxe for your miner.
             <br></br>
-            Produces 1 wood per second.
+            Produces 1 Metal per second.
             <br></br>
-            Costs{" "}
-            <span id="woodcutterMetalCost">
-              {this.props.woodcutterMetalCost}
+            Costs <span id="minerMetalCost">
+              {this.props.minerMetalCost}
             </span>{" "}
-            Metal,{" "}
-            <span id="woodcutterWoodCost">{this.props.woodcutterWoodCost}</span>{" "}
+            Metal, <span id="minerWoodCost">{this.props.minerWoodCost}</span>{" "}
             Wood.
             <br></br>
             <Button
               variant="outline-dark"
               size="sm"
               className="m-2"
-              onClick={this.props.getWoodcutter}
+              onClick={this.props.getMiner}
             >
-              Get Woodcutter
+              Get Miner
             </Button>
           </div>
         </Tab.Pane>
@@ -53,4 +51,4 @@ class WoodPane extends Component {
   }
 }
 
-export default WoodPane;
+export default MetalPane;
