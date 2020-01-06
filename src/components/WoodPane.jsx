@@ -8,22 +8,23 @@ class WoodPane extends Component {
       <Tab.Content>
         <Tab.Pane eventKey="Wood">
           <div>
-            <h2>Wood</h2>
+            <h2 class="text-primary">Wood</h2>
             <span>
               Wood is one of the primary resources. It is used more often in
               early game for tools and buildings.
             </span>
             <br></br>
             <Button
-              variant="outline-dark"
               size="sm"
               className="m-2"
+              type="button"
+              class="btn btn-secondary"
               onClick={this.props.gainWood}
             >
               Gain 1
             </Button>
             <br></br>
-            <h3>
+            <h3 class="text-primary">
               Woodcutter: <span id="Woodcutter">{this.props.woodcutter}</span>
             </h3>
             Build an axe for your woodcutter.
@@ -39,9 +40,10 @@ class WoodPane extends Component {
             Wood.
             <br></br>
             <Button
-              variant="outline-dark"
               size="sm"
               className="m-2"
+              type="button"
+              class="btn btn-secondary"
               onClick={this.props.getWoodcutter}
             >
               Get Woodcutter

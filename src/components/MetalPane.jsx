@@ -8,23 +8,24 @@ class MetalPane extends Component {
       <Tab.Content>
         <Tab.Pane eventKey="Metal">
           <div>
-            <h2>Metal</h2>
+            <h2 class="text-primary">Metal</h2>
             <span>
               Metal is one of the primary resources. It is used for many things,
               including storage upgrades, machinery and most things in space.
             </span>
             <br></br>
             <Button
-              variant="outline-dark"
               size="sm"
               className="m-2"
+              type="button"
+              class="btn btn-secondary"
               onClick={this.props.gainMetal}
             >
               Gain 1
             </Button>
             <br></br>
-            <h3>
-              Miner: <span id="Miner">{this.props.Miner}</span>
+            <h3 class="text-primary">
+              Miner: <span id="Miner">{this.props.miner}</span>
             </h3>
             Build a pickaxe for your miner.
             <br></br>
@@ -37,9 +38,10 @@ class MetalPane extends Component {
             Wood.
             <br></br>
             <Button
-              variant="outline-dark"
               size="sm"
               className="m-2"
+              type="button"
+              class="btn btn-secondary"
               onClick={this.props.getMiner}
             >
               Get Miner

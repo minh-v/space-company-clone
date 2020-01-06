@@ -7,15 +7,28 @@ import ResourceTabs from "./ResourceTabs";
 //import Metal from "./Metal";
 
 class Navtabs extends Component {
+  state = {
+    researchTabEnabled: false
+  };
+
+  enableResearchTab = () => {
+    console.log("toggling state");
+    this.setState({
+      researchTabEnabled: true
+    });
+  };
   render() {
     return (
       <div class="container">
         <Tabs defaultActiveKey="Resources" id="Navtabs">
           <Tab eventKey="Resources" title="Resources">
-            <ResourceTabs />
+            <ResourceTabs enableResearchTab={this.enableResearchTab} />
           </Tab>
-          <Tab eventKey="Research" title="Research" tabClassName="d-none">
-            //hidden temporarily
+          <Tab
+            eventKey="Research"
+            title="Research"
+            tabClassName={this.state.researchTabEnabled ? "" : "d-none"}
+          >
             <p>temp</p>
           </Tab>
         </Tabs>

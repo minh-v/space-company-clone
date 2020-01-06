@@ -26,10 +26,14 @@ class ResourceTabs extends Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      this.setState({
-        metal: this.state.metal + this.state.metalps,
-        wood: this.state.wood + this.state.woodps
-      });
+      if (this.state.maxMetal > this.state.metal + this.state.metalps)
+        this.setState({
+          metal: this.state.metal + this.state.metalps
+        });
+      if (this.state.maxWood > this.state.wood + this.state.woodps)
+        this.setState({
+          wood: this.state.wood + this.state.woodps
+        });
     }, 1000);
   }
 
@@ -50,7 +54,7 @@ class ResourceTabs extends Component {
       // if has required materials
       this.state.wood >= this.state.minerWoodCost &&
       this.state.metal >= this.state.minerMetalCost
-    )
+    ) {
       this.setState(state => {
         return {
           metal: this.state.metal - this.state.minerMetalCost,
@@ -61,6 +65,10 @@ class ResourceTabs extends Component {
           minerWoodCost: Math.round(this.state.minerWoodCost * 1.1)
         };
       });
+      if (this.state.miner === 0) {
+        this.props.enableResearchTab();
+      }
+    }
   };
 
   gainWood = () => {
