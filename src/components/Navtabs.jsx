@@ -12,7 +12,7 @@ class Navtabs extends Component {
   };
 
   enableResearchTab = () => {
-    console.log("toggling state");
+    //console.log("toggling state");
     this.setState({
       researchTabEnabled: true
     });

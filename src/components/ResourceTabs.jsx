@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Metal from "./Metal";
 import MetalPane from "./MetalPane";
-import Nav from "react-bootstrap/Nav";
+import Gems from "./Gems";
+import GemsPane from "./GemsPane";
 import Wood from "./Wood";
 import WoodPane from "./WoodPane";
 
@@ -16,6 +18,12 @@ class ResourceTabs extends Component {
     minerMetalCost: 10,
     minerWoodCost: 5,
     miner: 0,
+    gems: 0,
+    gemsps: 0,
+    maxGems: 50,
+    gemMinerMetalCost: 15,
+    gemMinerGemsCost: 10,
+    gemMiner: 0,
     wood: 0,
     woodps: 0,
     maxWood: 50,
@@ -26,13 +34,17 @@ class ResourceTabs extends Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      if (this.state.maxMetal > this.state.metal + this.state.metalps)
+      if (this.state.maxMetal >= this.state.metal + this.state.metalps)
         this.setState({
           metal: this.state.metal + this.state.metalps
         });
-      if (this.state.maxWood > this.state.wood + this.state.woodps)
+      if (this.state.maxWood >= this.state.wood + this.state.woodps)
         this.setState({
           wood: this.state.wood + this.state.woodps
+        });
+      if (this.state.maxGems >= this.state.gems + this.state.gemsps)
+        this.setState({
+          gems: this.state.gems + this.state.gemsps
         });
     }, 1000);
   }
@@ -68,6 +80,33 @@ class ResourceTabs extends Component {
       if (this.state.miner === 0) {
         this.props.enableResearchTab();
       }
+    }
+  };
+
+  gainGems = () => {
+    if (this.state.gems < this.state.maxGems) {
+      this.setState(state => {
+        return { gems: state.gems + 1 };
+      });
+    }
+  };
+
+  getGemMiner = () => {
+    if (
+      // if has required materials
+      this.state.metal >= this.state.gemMinerMetalCost &&
+      this.state.gems >= this.state.gemMinerGemsCost
+    ) {
+      this.setState(state => {
+        return {
+          metal: this.state.metal - this.state.gemMinerMetalCost,
+          gems: this.state.gems - this.state.gemMinerGemsCost,
+          gemMiner: this.state.gemMiner + 1,
+          gemsps: this.state.gemsps + 1,
+          gemMinerMetalCost: Math.round(this.state.gemMinerMetalCost * 1.1),
+          gemMinerGemsCost: Math.round(this.state.gemMinerGemsCost * 1.1)
+        };
+      });
     }
   };
 
@@ -112,9 +151,11 @@ class ResourceTabs extends Component {
                 metalps={this.state.metalps}
                 maxMetal={this.state.maxMetal}
               />
-              <Nav.Item>
-                <Nav.Link eventKey="Gems">Gems</Nav.Link>
-              </Nav.Item>
+              <Gems
+                gems={this.state.gems}
+                gemsps={this.state.gemsps}
+                maxGems={this.state.maxGems}
+              />
               <Wood
                 wood={this.state.wood}
                 woodps={this.state.woodps}
@@ -133,7 +174,15 @@ class ResourceTabs extends Component {
                 minerMetalCost={this.state.minerMetalCost}
                 minerWoodCost={this.state.minerWoodCost}
               />
-              <Tab.Pane eventKey="Gems">Gemz</Tab.Pane>
+              <GemsPane
+                gems={this.state.gems}
+                metal={this.state.metal}
+                gainGems={this.gainGems}
+                getGemMiner={this.getGemMiner}
+                gemMiner={this.state.gemMiner}
+                gemMinerMetalCost={this.state.gemMinerMetalCost}
+                gemMinerGemsCost={this.state.gemMinerGemsCost}
+              />
               <WoodPane
                 wood={this.state.wood}
                 metal={this.state.metal}
