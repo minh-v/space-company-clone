@@ -9,7 +9,7 @@ import SciencePane from "./SciencePane";
 class ResearchTabs extends Component {
   state = {
     science: 0,
-    scienceps: 0,
+    scienceps: 0.0,
     homeScienceKit: 0,
     hskMetalCost: 20,
     hskGemsCost: 15,
@@ -19,6 +19,7 @@ class ResearchTabs extends Component {
   buildHomeScienceKit = () => {
     if (
       // figure out how to pass state between siblings
+      //check costs here
       true
     ) {
       this.setState(state => {
@@ -27,6 +28,7 @@ class ResearchTabs extends Component {
           //gems: this.state.gems - this.state.gemMinerGemsCost,
           //wood:
           homeScienceKit: this.state.homeScienceKit + 1,
+          //scienceps: this.state.homeScienceKit * 0.1, //why doens't this work? doesn't work on the first build
           scienceps: this.state.scienceps + 0.1,
           hskMetalCost: Math.round(this.state.hskMetalCost * 1.1),
           hskGemsCost: Math.round(this.state.hskGemsCost * 1.1),

@@ -12,7 +12,7 @@ class Science extends Component {
             <Row>
               <Col>Science Production</Col>
               <Col>
-                <span>{this.props.scienceps}/Sec</span>
+                <span>{this.props.scienceps.toFixed(1)}/Sec</span>
               </Col>
               <Col>
                 <span id="Science">{this.props.science}</span>
