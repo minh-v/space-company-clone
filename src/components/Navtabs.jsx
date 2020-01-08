@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import ResourceTabs from "./ResourceTabs";
-//import Container from "react-bootstrap/Container";
-//import Metal from "./Metal";
+import ResearchTabs from "./ResearchTabs";
 
 class Navtabs extends Component {
   state = {
@@ -29,7 +28,7 @@ class Navtabs extends Component {
             title="Research"
             tabClassName={this.state.researchTabEnabled ? "" : "d-none"}
           >
-            <p>temp</p>
+            <ResearchTabs />
           </Tab>
         </Tabs>
       </div>
