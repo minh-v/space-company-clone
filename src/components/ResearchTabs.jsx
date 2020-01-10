@@ -30,17 +30,21 @@ class ResearchTabs extends Component {
 
   buildHomeScienceKit = () => {
     if (
-      // figure out how to pass state between siblings
-      //check costs here
-      true
+      this.props.metal >= this.state.hskMetalCost &&
+      this.props.gems >= this.state.hskGemsCost &&
+      this.props.wood >= this.state.hskWoodCost
     ) {
+      this.props.purchase(
+        this.state.hskMetalCost,
+        this.state.hskGemsCost,
+        this.state.hskWoodCost
+      );
       this.setState(state => {
         return {
           //metal: this.state.metal - this.state.gemMinerMetalCost,
           //gems: this.state.gems - this.state.gemMinerGemsCost,
           //wood:
           homeScienceKit: this.state.homeScienceKit + 1,
-          //scienceps: this.state.homeScienceKit * 0.1, //why doens't this work? doesn't work on the first build
           scienceps: this.state.scienceps + 0.1,
           hskMetalCost: Math.round(this.state.hskMetalCost * 1.1),
           hskGemsCost: Math.round(this.state.hskGemsCost * 1.1),

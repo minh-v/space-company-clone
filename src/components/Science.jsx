@@ -15,7 +15,7 @@ class Science extends Component {
                 <span>{this.props.scienceps.toFixed(1)}/Sec</span>
               </Col>
               <Col>
-                <span id="Science">{this.props.science}</span>
+                <span id="Science">{this.props.science.toFixed(1)}</span>
               </Col>
             </Row>
           </Nav.Link>
