@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Nav from "react-bootstrap/Nav";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import ResourceTabs from "./ResourceTabs";
@@ -11,7 +10,7 @@ class Navtabs extends Component {
   };
 
   enableResearchTab = () => {
-    //console.log("toggling state");
+    // toggle research tab
     this.setState({
       researchTabEnabled: true
     });

@@ -16,6 +16,18 @@ class ResearchTabs extends Component {
     hskWoodCost: 10
   };
 
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({
+        science: this.state.science + this.state.scienceps
+      });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   buildHomeScienceKit = () => {
     if (
       // figure out how to pass state between siblings
