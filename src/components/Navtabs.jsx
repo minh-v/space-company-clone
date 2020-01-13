@@ -29,17 +29,17 @@ class Navtabs extends Component {
   };
   componentDidMount() {
     this.interval = setInterval(() => {
-      if (this.state.maxMetal >= this.state.metal + this.state.metalps)
+      if (this.state.maxMetal <= this.state.metal + this.state.metalps)
         this.setState({
-          metal: this.state.metal + this.state.metalps
+          metal: this.state.maxMetal
         });
-      if (this.state.maxWood >= this.state.wood + this.state.woodps)
+      if (this.state.maxWood <= this.state.wood + this.state.woodps)
         this.setState({
-          wood: this.state.wood + this.state.woodps
+          wood: this.state.maxWood
         });
-      if (this.state.maxGems >= this.state.gems + this.state.gemsps)
+      if (this.state.maxGems <= this.state.gems + this.state.gemsps)
         this.setState({
-          gems: this.state.gems + this.state.gemsps
+          gems: this.state.maxWood
         });
     }, 1000);
   }
