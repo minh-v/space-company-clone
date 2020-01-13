@@ -157,6 +157,7 @@ class Navtabs extends Component {
   upgradeMetalStorage = () => {
     if (this.state.metal === this.state.maxMetal) {
       this.setState({
+        metal: 0,
         maxMetal: this.state.maxMetal * 2
       });
     }
@@ -165,6 +166,7 @@ class Navtabs extends Component {
   upgradeGemsStorage = () => {
     if (this.state.gems === this.state.maxGems) {
       this.setState({
+        gems: 0,
         maxGems: this.state.maxGems * 2
       });
     }
@@ -173,6 +175,7 @@ class Navtabs extends Component {
   upgradeWoodStorage = () => {
     if (this.state.wood === this.state.maxWood) {
       this.setState({
+        wood: 0,
         maxWood: this.state.maxWood * 2
       });
     }
