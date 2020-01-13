@@ -42,30 +42,39 @@ class ResourceTabs extends Component {
             <Tab.Content>
               <MetalPane
                 metal={this.props.metal}
+                maxMetal={this.props.maxMetal}
                 wood={this.props.wood}
                 gainMetal={this.props.gainMetal}
                 getMiner={this.props.getMiner}
                 miner={this.props.miner}
                 minerMetalCost={this.props.minerMetalCost}
                 minerWoodCost={this.props.minerWoodCost}
+                storageUpgradeEnabled={this.props.storageUpgradeEnabled}
+                upgradeMetalStorage={this.props.upgradeMetalStorage}
               />
               <GemsPane
                 gems={this.props.gems}
+                maxGems={this.props.maxGems}
                 metal={this.props.metal}
                 gainGems={this.props.gainGems}
                 getGemMiner={this.props.getGemMiner}
                 gemMiner={this.props.gemMiner}
                 gemMinerMetalCost={this.props.gemMinerMetalCost}
                 gemMinerGemsCost={this.props.gemMinerGemsCost}
+                storageUpgradeEnabled={this.props.storageUpgradeEnabled}
+                upgradeGemsStorage={this.props.upgradeGemsStorage}
               />
               <WoodPane
                 wood={this.props.wood}
+                maxWood={this.props.maxWood}
                 metal={this.props.metal}
                 gainWood={this.props.gainWood}
                 getWoodcutter={this.props.getWoodcutter}
                 woodcutter={this.props.woodcutter}
                 woodcutterMetalCost={this.props.woodcutterMetalCost}
                 woodcutterWoodCost={this.props.woodcutterWoodCost}
+                storageUpgradeEnabled={this.props.storageUpgradeEnabled}
+                upgradeWoodStorage={this.props.upgradeWoodStorage}
               />
             </Tab.Content>
           </Col>

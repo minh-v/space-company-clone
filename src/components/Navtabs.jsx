@@ -24,7 +24,8 @@ class Navtabs extends Component {
     woodcutterMetalCost: 10,
     woodcutterWoodCost: 5,
     woodcutter: 0,
-    researchTabEnabled: false
+    researchTabEnabled: false,
+    storageUpgradeEnabled: false
   };
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -147,6 +148,36 @@ class Navtabs extends Component {
     });
   };
 
+  enableStorageUpgrade = () => {
+    this.setState({
+      storageUpgradeEnabled: true
+    });
+  };
+
+  upgradeMetalStorage = () => {
+    if (this.state.metal === this.state.maxMetal) {
+      this.setState({
+        maxMetal: this.state.maxMetal * 2
+      });
+    }
+  };
+
+  upgradeGemsStorage = () => {
+    if (this.state.gems === this.state.maxGems) {
+      this.setState({
+        maxGems: this.state.maxGems * 2
+      });
+    }
+  };
+
+  upgradeWoodStorage = () => {
+    if (this.state.wood === this.state.maxWood) {
+      this.setState({
+        maxWood: this.state.maxWood * 2
+      });
+    }
+  };
+
   render() {
     return (
       <div class="container">
@@ -177,6 +208,10 @@ class Navtabs extends Component {
               woodcutter={this.state.woodcutter}
               woodcutterMetalCost={this.state.woodcutterMetalCost}
               woodcutterWoodCost={this.state.woodcutterWoodCost}
+              storageUpgradeEnabled={this.state.storageUpgradeEnabled}
+              upgradeMetalStorage={this.upgradeMetalStorage}
+              upgradeGemsStorage={this.upgradeGemsStorage}
+              upgradeWoodStorage={this.upgradeWoodStorage}
             />
           </Tab>
           <Tab
@@ -189,6 +224,8 @@ class Navtabs extends Component {
               gems={this.state.gems}
               wood={this.state.wood}
               purchase={this.purchase}
+              enableStorageUpgrade={this.enableStorageUpgrade}
+              storageUpgradeEnabled={this.state.storageUpgradeEnabled}
             />
           </Tab>
         </Tabs>

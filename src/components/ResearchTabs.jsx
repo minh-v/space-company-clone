@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Science from "./Science";
 import SciencePane from "./SciencePane";
+import Technologies from "./Technologies";
+import TechnologiesPane from "./TechnologiesPane";
 
 class ResearchTabs extends Component {
   state = {
@@ -13,7 +15,8 @@ class ResearchTabs extends Component {
     homeScienceKit: 0,
     hskMetalCost: 20,
     hskGemsCost: 15,
-    hskWoodCost: 10
+    hskWoodCost: 10,
+    storageUpgradeCost: 5
   };
 
   componentDidMount() {
@@ -54,6 +57,16 @@ class ResearchTabs extends Component {
     }
   };
 
+  buyStorageUpgrade = () => {
+    const storageUpgradeCost = this.state.storageUpgradeCost;
+    if (this.state.science >= this.state.storageUpgradeCost) {
+      this.setState({
+        science: this.state.science - storageUpgradeCost
+      });
+      this.props.enableStorageUpgrade();
+    }
+  };
+
   render() {
     return (
       <Tab.Container
@@ -68,6 +81,7 @@ class ResearchTabs extends Component {
                 science={this.state.science}
                 scienceps={this.state.scienceps}
               />
+              <Technologies />
             </Nav>
           </Col>
           <Col sm={9}>
@@ -78,6 +92,12 @@ class ResearchTabs extends Component {
                 hskGemsCost={this.state.hskGemsCost}
                 hskWoodCost={this.state.hskWoodCost}
                 buildHomeScienceKit={this.buildHomeScienceKit}
+              />
+              <TechnologiesPane
+                science={this.state.science}
+                storageUpgradeCost={this.state.storageUpgradeCost}
+                storageUpgradeEnabled={this.props.storageUpgradeEnabled}
+                buyStorageUpgrade={this.buyStorageUpgrade}
               />
             </Tab.Content>
           </Col>

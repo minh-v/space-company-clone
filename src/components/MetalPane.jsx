@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 
 class MetalPane extends Component {
   render() {
+    const nextUpgrade = this.props.maxMetal * 2;
     return (
       <Tab.Content>
         <Tab.Pane eventKey="Metal">
@@ -24,6 +25,24 @@ class MetalPane extends Component {
               Gain 1
             </Button>
             <br></br>
+            {this.props.storageUpgradeEnabled ? (
+              <div>
+                <h3 class="text-primary">Storage Upgrade</h3>
+                <span>Upgrade your Metal storage size to {nextUpgrade}.</span>
+                <br></br>
+                Costs <span>{this.props.maxMetal}</span> Metal.
+                <br></br>
+                <Button
+                  size="sm"
+                  className="m-2"
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick={this.props.upgradeMetalStorage}
+                >
+                  Upgrade Storage
+                </Button>
+              </div>
+            ) : null}
             <h3 class="text-primary">
               Miner: <span id="Miner">{this.props.miner}</span>
             </h3>
