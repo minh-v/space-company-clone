@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 class WoodPane extends Component {
   render() {
-    const nextUpgrade = this.props.maxMetal * 2;
+    const nextUpgrade = this.props.maxWood * 2;
     return (
       <Tab.Content>
         <Tab.Pane eventKey="Wood">

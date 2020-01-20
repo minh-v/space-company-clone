@@ -32,6 +32,12 @@ class MetalPane extends Component {
                 <br></br>
                 Costs <span>{this.props.maxMetal}</span> Metal.
                 <br></br>
+                Time until full storage:{" "}
+                <span>
+                  {(this.props.maxMetal - this.props.metal) /
+                    this.props.metalps}
+                </span>
+                <br></br>
                 <Button
                   size="sm"
                   className="m-2"

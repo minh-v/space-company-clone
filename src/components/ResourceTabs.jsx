@@ -42,6 +42,7 @@ class ResourceTabs extends Component {
             <Tab.Content>
               <MetalPane
                 metal={this.props.metal}
+                metalps={this.props.metalps}
                 maxMetal={this.props.maxMetal}
                 wood={this.props.wood}
                 gainMetal={this.props.gainMetal}
@@ -54,6 +55,7 @@ class ResourceTabs extends Component {
               />
               <GemsPane
                 gems={this.props.gems}
+                gemsps={this.props.gemsps}
                 maxGems={this.props.maxGems}
                 metal={this.props.metal}
                 gainGems={this.props.gainGems}
@@ -66,6 +68,7 @@ class ResourceTabs extends Component {
               />
               <WoodPane
                 wood={this.props.wood}
+                woodps={this.props.woodps}
                 maxWood={this.props.maxWood}
                 metal={this.props.metal}
                 gainWood={this.props.gainWood}

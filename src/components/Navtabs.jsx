@@ -33,14 +33,29 @@ class Navtabs extends Component {
         this.setState({
           metal: this.state.maxMetal
         });
+      else if (this.state.maxMetal > this.state.metal + this.state.metalps) {
+        this.setState({
+          metal: this.state.metal + this.state.metalps
+        });
+      }
       if (this.state.maxWood <= this.state.wood + this.state.woodps)
         this.setState({
           wood: this.state.maxWood
         });
+      else if (this.state.maxWood > this.state.wood + this.state.woodps) {
+        this.setState({
+          wood: this.state.wood + this.state.woodps
+        });
+      }
       if (this.state.maxGems <= this.state.gems + this.state.gemsps)
         this.setState({
-          gems: this.state.maxWood
+          gems: this.state.maxGems
         });
+      else if (this.state.maxGems > this.state.gems + this.state.gemsps) {
+        this.setState({
+          gems: this.state.gems + this.state.gemsps
+        });
+      }
     }, 1000);
   }
 
